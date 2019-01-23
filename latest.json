@@ -1,0 +1,48 @@
+{ 
+  "latest": [
+    {
+    "time": "2019-01-23T14:00:25.946Z",
+    "accelerationX": 8,
+    "accelerationY": -100,
+    "accelerationZ": 901,
+    "humidity": 34.5,
+    "pressure": 99685,
+    "rssi": -84,
+    "temperature": 21.92,
+    "ruuviId": "fcdc5af41aeb"
+    },
+    {
+    "time": "2019-01-23T14:00:25.945Z",
+    "accelerationX": 87,
+    "accelerationY": 61,
+    "accelerationZ": 1062,
+    "humidity": 27.5,
+    "pressure": 99688,
+    "rssi": -74,
+    "temperature": 19.95,
+    "ruuviId": "f3e89460cb3a"
+    },
+    {
+    "time": "2019-01-23T14:00:25.946Z",
+    "accelerationX": 4,
+    "accelerationY": 7,
+    "accelerationZ": 985,
+    "humidity": 34.5,
+    "pressure": 99545,
+    "rssi": -54,
+    "temperature": 23.11,
+    "ruuviId": "f05cef331426"
+    },
+    {
+    "time": "2019-01-23T14:00:25.947Z",
+    "accelerationX": 267,
+    "accelerationY": -1,
+    "accelerationZ": 935,
+    "humidity": 31,
+    "pressure": 99721,
+    "rssi": -50,
+    "temperature": 21.72,
+    "ruuviId": "c98165167b02"
+    }
+  ]
+}
