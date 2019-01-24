@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Line } from 'react-chartjs-2'
+import PropTypes from 'prop-types'
 
 class Weather extends Component {
   render() {
@@ -10,8 +11,19 @@ class Weather extends Component {
     //     backgroundColor: gradient,
     //   }
     // }
+    // const names = this.props.weather.map(t => t.name)
+
+    let names = []
+    let values = []
+
+    if (this.props.weather) {
+      this.props.weather.forEach(t => {
+        names.push(t.name)
+        values.push(t.temperature)
+      })
+    }
     const data = {
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      labels: names,
       datasets: [
         {
           label: 'Lämpötila',
@@ -32,17 +44,24 @@ class Weather extends Component {
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: [65, 59, 80, 81, 56, 55, 40],
+          data: values,
         },
       ],
     }
 
     return (
-      <div>
+      <div
+        className="chart-container"
+        style={{ position: 'relative', height: '15em', width: '30em' }}
+      >
         <Line data={data} />
       </div>
     )
   }
+}
+
+Weather.propTypes = {
+  weather: PropTypes.array,
 }
 
 export default Weather

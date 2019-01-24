@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import './tag.css'
 
 class Tag extends Component {
@@ -12,6 +13,10 @@ class Tag extends Component {
       </div>
     )
   }
+}
+
+Tag.propTypes = {
+  tag: PropTypes.object,
 }
 
 export default Tag

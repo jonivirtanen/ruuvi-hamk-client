@@ -22,16 +22,18 @@ class App extends Component {
 
   componentDidMount() {
     let objects = []
+
     ruuviService.getAll().then(data => {
-      data.map(tag => {
+      data.forEach(tag => {
         const res = json.tags.find(t => t.ruuviId === tag.ruuviId)
-        const object = {
+
+        objects.push({
           name: res.name,
           ruuviId: tag.ruuviId,
           temperature: tag.temperature,
-        }
-        objects.push(object)
-        return objects
+          humidity: tag.humidity,
+          pressure: tag.pressure,
+        })
       })
 
       this.setState({
@@ -57,7 +59,7 @@ class App extends Component {
                     {this.state.tags ? (
                       this.state.tags.map(t => <Tag tag={t} key={t.ruuviId} />)
                     ) : (
-                      <Loader />
+                      <Loader active />
                     )}
                   </div>
                 </Grid.Column>
@@ -66,7 +68,7 @@ class App extends Component {
           />
           <Route
             path="/weather"
-            render={() => <Weather weather={this.state.weather} />}
+            render={() => <Weather weather={this.state.tags} />}
           />
         </div>
       </Router>
