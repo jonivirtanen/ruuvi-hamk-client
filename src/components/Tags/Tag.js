@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
+import './tag.css'
 
-class Tag extends Component {  
+class Tag extends Component {
   render() {
     const { tag } = this.props
     return (
       <div className="tag">
-        {tag.ruuviId}
-        {tag.temperature}
+        <div className="ruuviId">{tag.ruuviId}</div>
+        <div className="temperature">{tag.temperature}</div>
       </div>
     )
   }
