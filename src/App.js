@@ -35,12 +35,15 @@ class App extends Component {
         tags: objects,
       })
     })
+    setTimeout(() => {
+      this.componentDidMount()
+    }, 10000)
   }
 
   render() {
     return (
       <Grid style={{ height: '100vh' }}>
-        <Grid.Column color="orange" style={{ padding: 0 }}>
+        <Grid.Column style={{ padding: 0 }}>
           <div className="tags">
             {this.state.tags
               ? this.state.tags.map(t => <Tag tag={t} key={t.ruuviId} />)

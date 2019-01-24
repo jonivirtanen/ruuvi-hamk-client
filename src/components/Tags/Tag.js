@@ -8,7 +8,7 @@ class Tag extends Component {
       <div className="tag">
         <div className="ruuviId">{tag.ruuviId}</div>
         <div className="ruuviName">{tag.name}</div>
-        <div className="temperature">{tag.temperature}</div>
+        <div className="temperature">{tag.temperature.toFixed(1)}</div>
       </div>
     )
   }
