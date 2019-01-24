@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import ruuviService from './services/ruuvi'
 import Weather from './components/Weather/Weather'
-import { Grid, Header } from 'semantic-ui-react'
+import { Grid, Header, Card } from 'semantic-ui-react'
+import Tag from './components/Tags/Tag'
 class App extends Component {
   constructor() {
     super()
@@ -31,7 +32,11 @@ class App extends Component {
         <Grid.Row style={{height: '50%'}}>
           <Grid.Column width={8} color='orange'>
             <Header as='h1' floated='left'>Ruuvi Tags</Header>
-            
+            <Card.Group>
+              {this.state.tags.map(tag => (
+                <Tag tag={tag} key={tag.ruuviId}/>
+              ))}
+            </Card.Group>
           </Grid.Column>
           <Grid.Column width={8} color='green'>
             <Header as='h1' floated='right'>Sää</Header>
