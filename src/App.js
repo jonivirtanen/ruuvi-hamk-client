@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import ruuviService from './services/ruuvi'
-import { Grid } from 'semantic-ui-react'
+import { Grid, Loader } from 'semantic-ui-react'
 import Tag from './components/Tags/Tag'
 import './style.css'
 import Weather from './components/Weather/Weather'
@@ -24,9 +24,9 @@ class App extends Component {
     let objects = []
     ruuviService.getAll().then(data => {
       data.map(tag => {
-        const eemelimuuttuja = json.tags.find(t => t.ruuviId === tag.ruuviId)
+        const res = json.tags.find(t => t.ruuviId === tag.ruuviId)
         const object = {
-          name: eemelimuuttuja.name,
+          name: res.name,
           ruuviId: tag.ruuviId,
           temperature: tag.temperature,
         }
@@ -54,11 +54,11 @@ class App extends Component {
               <Grid style={{ height: '100vh' }}>
                 <Grid.Column>
                   <div className="tags">
-                    {this.state.tags
-                      ? this.state.tags.map(t => (
-                          <Tag tag={t} key={t.ruuviId} />
-                        ))
-                      : 0}
+                    {this.state.tags ? (
+                      this.state.tags.map(t => <Tag tag={t} key={t.ruuviId} />)
+                    ) : (
+                      <Loader />
+                    )}
                   </div>
                 </Grid.Column>
               </Grid>
