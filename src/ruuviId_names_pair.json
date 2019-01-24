@@ -3,6 +3,7 @@
     { "ruuviId": "fcdc5af41aeb", "name": "Olohuone" },
     { "ruuviId": "f3e89460cb3a", "name": "Keittiö" },
     { "ruuviId": "f05cef331426", "name": "Työhuone" },
-    { "ruuviId": "c98165167b02", "name": "Vaja" }
+    { "ruuviId": "c98165167b02", "name": "Vaja" },
+    { "ruuviId": "e5aded9bfa42", "name": "VESSA" }
   ]
 }

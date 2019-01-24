@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
 import ruuviService from './services/ruuvi'
-import Weather from './components/Weather/Weather'
-import { Grid, Header, Card } from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
 import Tag from './components/Tags/Tag'
 import './style.css'
+import json from './ruuviId_names_pair.json'
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      tags: [],
       weather: [
         { time: '10:00', value: 15 },
         { time: '11:00', value: 15 },
@@ -19,9 +18,21 @@ class App extends Component {
   }
 
   componentDidMount() {
+    let objects = []
     ruuviService.getAll().then(data => {
+      data.map(tag => {
+        const eemelimuuttuja = json.tags.find(t => t.ruuviId === tag.ruuviId)
+        const object = {
+          name: eemelimuuttuja.name,
+          ruuviId: tag.ruuviId,
+          temperature: tag.temperature,
+        }
+        objects.push(object)
+        return objects
+      })
+
       this.setState({
-        tags: data,
+        tags: objects,
       })
     })
   }
@@ -29,34 +40,13 @@ class App extends Component {
   render() {
     return (
       <Grid style={{ height: '100vh' }}>
-        <Grid.Row style={{ height: '50%' }}>
-          <Grid.Column width={8} color="orange" style={{ padding: 0 }}>
-            <div className="tags">
-              {this.state.tags.map(tag => (
-                <Tag tag={tag} key={tag.ruuviId} />
-              ))}
-            </div>
-          </Grid.Column>
-          <Grid.Column width={8} color="green">
-            <Header as="h1" floated="right">
-              Sää
-            </Header>
-            <Weather weather={this.state.weather} />
-          </Grid.Column>
-        </Grid.Row>
-
-        <Grid.Row style={{ height: '50%' }}>
-          <Grid.Column width={8} color="blue">
-            <Header as="h1" floated="left">
-              Linja-autot
-            </Header>
-          </Grid.Column>
-          <Grid.Column width={8} color="red" textAlign="center">
-            <Header as="h1" floated="right">
-              Alsun striimi
-            </Header>
-          </Grid.Column>
-        </Grid.Row>
+        <Grid.Column color="orange" style={{ padding: 0 }}>
+          <div className="tags">
+            {this.state.tags
+              ? this.state.tags.map(t => <Tag tag={t} key={t.ruuviId} />)
+              : 0}
+          </div>
+        </Grid.Column>
       </Grid>
     )
   }
