@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import ruuviService from './services/ruuvi'
 import { Grid } from 'semantic-ui-react'
 import Tag from './components/Tags/Tag'
 import './style.css'
+import Weather from './components/Weather/Weather'
 import json from './ruuviId_names_pair.json'
+
 class App extends Component {
   constructor() {
     super()
@@ -42,15 +45,31 @@ class App extends Component {
 
   render() {
     return (
-      <Grid style={{ height: '100vh' }}>
-        <Grid.Column style={{ padding: 0 }}>
-          <div className="tags">
-            {this.state.tags
-              ? this.state.tags.map(t => <Tag tag={t} key={t.ruuviId} />)
-              : 0}
-          </div>
-        </Grid.Column>
-      </Grid>
+      <Router>
+        <div>
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <Grid style={{ height: '100vh' }}>
+                <Grid.Column>
+                  <div className="tags">
+                    {this.state.tags
+                      ? this.state.tags.map(t => (
+                          <Tag tag={t} key={t.ruuviId} />
+                        ))
+                      : 0}
+                  </div>
+                </Grid.Column>
+              </Grid>
+            )}
+          />
+          <Route
+            path="/weather"
+            render={() => <Weather weather={this.state.weather} />}
+          />
+        </div>
+      </Router>
     )
   }
 }
