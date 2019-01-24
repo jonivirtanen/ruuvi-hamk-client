@@ -1,3 +1,7 @@
+html {
+  overflow: hidden;
+}
+
 body {
   background: rgb(255, 115, 0);
   color: white;
