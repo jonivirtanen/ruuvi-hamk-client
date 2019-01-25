@@ -7,4 +7,9 @@ const getAll = () => {
   return request.then(response => response.data)
 }
 
-export default { getAll }
+const getSingle = id => {
+  const request = axios.get(`${baseUrl}/tag/${id}`)
+  return request.then(response => response.data)
+}
+
+export default { getAll, getSingle }
