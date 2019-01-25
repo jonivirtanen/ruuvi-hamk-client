@@ -25,8 +25,10 @@ class App extends Component {
 
     ruuviService.getAll().then(data => {
       data.forEach(tag => {
-        const res = json.tags.find(t => t.ruuviId === tag.ruuviId)
-
+        const foundTag = json.tags.find(t => t.ruuviId === tag.ruuviId)
+        const res = foundTag
+          ? (res.name = foundTag.name)
+          : (res.name = tag.ruuviId)
         objects.push({
           name: res.name,
           ruuviId: tag.ruuviId,
