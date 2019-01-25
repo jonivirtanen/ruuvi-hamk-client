@@ -1,5 +1,5 @@
 .tag {
-  color: #fff;
+  color: #000;
   margin: 1px 0;
   display: flex;
   flex-direction: column;
@@ -10,11 +10,11 @@
 }
 
 .tag:hover {
-  color: #fff;
+  color: #000;
 }
 
 .tag:active {
-  color: #fff;
+  color: #000;
 }
 
 .tag .ruuviId {

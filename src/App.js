@@ -30,7 +30,7 @@ class App extends Component {
         const foundTag = json.tags.find(t => t.ruuviId === tag.ruuviId)
         let res = { ...tag }
         foundTag
-          ? (res = { ...res, name: foundTag.name })
+          ? (res = { ...res, name: foundTag.name, color: foundTag.color })
           : (res = { ...res, name: tag.ruuviId })
 
         objects.push(res)
@@ -54,8 +54,6 @@ class App extends Component {
     )
   }
 
-  handleClick = id => {}
-
   render() {
     return (
       <Router>
@@ -72,7 +70,7 @@ class App extends Component {
                         <TagElement
                           tag={t}
                           key={t.ruuviId}
-                          hexColor={this.generateColor()}
+                          hexColor={t.color ? t.color : this.generateColor()}
                         />
                       ))
                     ) : (
