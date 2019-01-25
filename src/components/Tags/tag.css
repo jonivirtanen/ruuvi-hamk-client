@@ -1,10 +1,10 @@
 .tag {
-  margin: 5px;
+  margin: 1px 0;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   background: rgb(61, 61, 61);
-  width: 95vh;
+  width: 48vw;
   height: 125px;
 }
 
