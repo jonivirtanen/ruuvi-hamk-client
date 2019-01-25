@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import ruuviService from './services/ruuvi'
 import { Grid, Loader } from 'semantic-ui-react'
+import TagElement from './components/Tags/TagElement'
 import Tag from './components/Tags/Tag'
-import './style.css'
 import Weather from './components/Weather/Weather'
+
+import './style.css'
 import json from './ruuviId_names_pair.json'
 
 class App extends Component {
@@ -31,15 +33,7 @@ class App extends Component {
           ? (res = { ...res, name: foundTag.name })
           : (res = { ...res, name: tag.ruuviId })
 
-        console.log(res)
-
-        objects.push({
-          name: res.name,
-          ruuviId: tag.ruuviId,
-          temperature: tag.temperature,
-          humidity: tag.humidity,
-          pressure: tag.pressure,
-        })
+        objects.push(res)
       })
 
       this.setState({
@@ -60,6 +54,8 @@ class App extends Component {
     )
   }
 
+  handleClick = id => {}
+
   render() {
     return (
       <Router>
@@ -73,7 +69,7 @@ class App extends Component {
                   <div className="tags">
                     {this.state.tags ? (
                       this.state.tags.map(t => (
-                        <Tag
+                        <TagElement
                           tag={t}
                           key={t.ruuviId}
                           hexColor={this.generateColor()}
@@ -91,6 +87,18 @@ class App extends Component {
             path="/weather"
             render={() => <Weather weather={this.state.tags} />}
           />
+          {this.state.tags ? (
+            <Route
+              exact
+              path="/tags/:id"
+              render={({ match }) => {
+                const restag = this.state.tags.find(
+                  t => t.ruuviId === match.params.id
+                )
+                return <Tag tag={restag} />
+              }}
+            />
+          ) : null}
         </div>
       </Router>
     )
