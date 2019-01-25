@@ -1,9 +1,9 @@
 {
   "tags": [
-    { "ruuviId": "fcdc5af41aeb", "name": "Olohuone" },
-    { "ruuviId": "f3e89460cb3a", "name": "Keittiö" },
-    { "ruuviId": "f05cef331426", "name": "Työhuone" },
-    { "ruuviId": "c98165167b02", "name": "Vaja" },
-    { "ruuviId": "e5aded9bfa42", "name": "VESSA" }
+    { "ruuviId": "fcdc5af41aeb", "name": "Olohuone", "color": "#ffb3ba" },
+    { "ruuviId": "f3e89460cb3a", "name": "Keittiö", "color": "#ffdfba" },
+    { "ruuviId": "f05cef331426", "name": "Työhuone", "color": "#ffffba" },
+    { "ruuviId": "c98165167b02", "name": "Vaja", "color": "#baffc9" },
+    { "ruuviId": "e5aded9bfa42", "name": "VESSA", "color": "#bae1ff" }
   ]
 }
