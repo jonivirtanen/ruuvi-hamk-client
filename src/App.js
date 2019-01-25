@@ -48,7 +48,16 @@ class App extends Component {
     })
     setTimeout(() => {
       this.componentDidMount()
-    }, 10000)
+    }, 60000)
+  }
+
+  generateColor() {
+    return (
+      '#' +
+      Math.random()
+        .toString(16)
+        .substr(-6)
+    )
   }
 
   render() {
@@ -63,7 +72,13 @@ class App extends Component {
                 <Grid.Column>
                   <div className="tags">
                     {this.state.tags ? (
-                      this.state.tags.map(t => <Tag tag={t} key={t.ruuviId} />)
+                      this.state.tags.map(t => (
+                        <Tag
+                          tag={t}
+                          key={t.ruuviId}
+                          hexColor={this.generateColor()}
+                        />
+                      ))
                     ) : (
                       <Loader active />
                     )}
