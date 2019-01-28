@@ -5,7 +5,7 @@ import { Grid, Loader } from 'semantic-ui-react'
 import TagElement from './components/Tags/TagElement'
 import Tag from './components/Tags/Tag'
 import Weather from './components/Weather/Weather'
-import Lunch from './components/Lunch/LunchElement'
+import Lunch from './components/Lunch/Lunch'
 
 import './style.css'
 import json from './ruuviId_names_pair.json'
@@ -102,6 +102,7 @@ class App extends Component {
               }}
             />
           ) : null}
+          <Route path="/lunch" render={() => <Lunch />} />
         </div>
       </Router>
     )

@@ -12,4 +12,9 @@ const getSingle = id => {
   return request.then(response => response.data)
 }
 
-export default { getAll, getSingle }
+const getLunch = () => {
+  const request = axios.get(`${baseUrl}/lunch`)
+  return request.then(response => response.data)
+}
+
+export default { getAll, getSingle, getLunch }
