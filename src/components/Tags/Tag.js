@@ -86,7 +86,7 @@ class Tag extends Component {
         <Line data={data} height={100} />
         <div className="tagControls">
           <Link to="/">
-            <button>Takasin</button>
+            <span className="backButton">Takaisin</span>
           </Link>
         </div>
       </div>

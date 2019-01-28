@@ -51,9 +51,11 @@
 .tagPage .tagControls {
   display: flex;
   flex-direction: row;
+  width: 100%;
 }
 
 .tagValues .ruuviId {
+  display: none;
   margin: 1em;
 }
 
@@ -72,9 +74,16 @@
 .tagValues .pressure {
   margin: 1em;
 }
+.tagControls a {
+  color: white;
+  width: 100%;
+  display: flex;
+  background-color: rgb(90, 90, 90);
+  justify-content: center;
+}
 
-.tagControls button {
+.tagControls .backButton {
+  display: flex;
   padding: 1em;
-  font-size: 1em;
-  margin: 1em;
+  font-size: 0.7em;
 }
