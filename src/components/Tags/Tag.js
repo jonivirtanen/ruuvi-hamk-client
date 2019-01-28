@@ -21,9 +21,11 @@ class Tag extends Component {
     console.log(data)
     if (data != null) {
       data.forEach(tag => {
-        console.log(tag)
-        times.push(moment(tag.time).format('H:mm'))
-        temps.push(tag.temperature.toFixed(1))
+        if (tag.temperature != null && tag.time != null) {
+          console.log(tag)
+          times.push(moment(tag.time).format('H:mm'))
+          temps.push(tag.temperature.toFixed(1))
+        }
       })
       times.reverse()
       temps.reverse()
