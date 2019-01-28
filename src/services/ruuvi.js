@@ -8,7 +8,7 @@ const getAll = () => {
 }
 
 const getSingle = id => {
-  const request = axios.get(`${baseUrl}/tag/${id}`)
+  const request = axios.get(`${baseUrl}/tag/${id}/100`)
   return request.then(response => response.data)
 }
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import moment from 'moment'
 import { Line } from 'react-chartjs-2'
 import { Link } from 'react-router-dom'
 import ruuviService from '../../services/ruuvi'
@@ -21,10 +22,11 @@ class Tag extends Component {
     if (data != null) {
       data.forEach(tag => {
         console.log(tag)
-        times.push(tag.time)
+        times.push(moment(tag.time).format('H:mm'))
         temps.push(tag.temperature.toFixed(1))
       })
-
+      times.reverse()
+      temps.reverse()
       this.setState({
         times,
         temps,
@@ -36,6 +38,9 @@ class Tag extends Component {
     ruuviService.getSingle(this.props.tag.ruuviId).then(data => {
       this.parseData(data)
     })
+    setTimeout(() => {
+      this.componentDidMount()
+    }, 60000)
   }
 
   render() {
@@ -46,8 +51,8 @@ class Tag extends Component {
           label: 'Lämpötila',
           fill: false,
           lineTension: 0.1,
-          backgroundColor: 'rgba(75,192,192,0.4)',
-          borderColor: 'rgba(0,0,0,1)',
+          backgroundColor: 'rgb(75,192,192)',
+          borderColor: 'rgb(75,192,192)',
           borderCapStyle: 'butt',
           borderDash: [],
           borderDashOffset: 0.0,
@@ -78,7 +83,7 @@ class Tag extends Component {
           <div className="humidity"> {tag.humidity}</div>
           <div className="pressure"> {tag.pressure}</div>
         </div>
-        <Line data={data} />
+        <Line data={data} height={100} />
         <div className="tagControls">
           <Link to="/">
             <button>Takasin</button>

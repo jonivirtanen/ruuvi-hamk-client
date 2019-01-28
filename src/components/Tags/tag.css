@@ -7,6 +7,7 @@
   background: rgb(61, 61, 61);
   width: 32vw;
   height: 125px;
+  border: 1px black solid;
 }
 
 .tag:hover {
