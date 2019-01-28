@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import ruuviService from './services/ruuvi'
 import { Grid, Loader } from 'semantic-ui-react'
 import TagElement from './components/Tags/TagElement'
@@ -74,8 +74,11 @@ class App extends Component {
                       <Loader active />
                     )}
                   </div>
-                  <div className="lunch">
+                  <div className="nav">
                     <LunchElement />
+                    <Link className="weather" to="/weather">
+                      Weather
+                    </Link>
                   </div>
                 </Grid.Column>
               </Grid>
