@@ -1,0 +1,25 @@
+.lunch {
+  color: #000;
+  margin: 0;
+  font-size: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgb(255, 152, 34);
+  width: 100%;
+  height: 125px;
+  border: 1px black solid;
+}
+
+.lunch a {
+  margin: 0;
+}
+
+.lunch span {
+  text-align: center;
+  border: 0;
+}
+
+.lunch:hover {
+  color: #000;
+}

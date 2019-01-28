@@ -5,9 +5,11 @@ import { Grid, Loader } from 'semantic-ui-react'
 import TagElement from './components/Tags/TagElement'
 import Tag from './components/Tags/Tag'
 import Weather from './components/Weather/Weather'
+import Lunch from './components/Lunch/LunchElement'
 
 import './style.css'
 import json from './ruuviId_names_pair.json'
+import LunchElement from './components/Lunch/LunchElement'
 
 class App extends Component {
   constructor() {
@@ -76,6 +78,9 @@ class App extends Component {
                     ) : (
                       <Loader active />
                     )}
+                  </div>
+                  <div className="lunch">
+                    <LunchElement />
                   </div>
                 </Grid.Column>
               </Grid>
