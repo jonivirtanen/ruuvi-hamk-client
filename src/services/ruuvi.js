@@ -12,4 +12,9 @@ const getSingle = id => {
   return request.then(response => response.data)
 }
 
-export default { getAll, getSingle }
+const getWeather = () => {
+  const request = axios.get(`${baseUrl}/weather`)
+  return request.then(response => response.data)
+}
+
+export default { getAll, getSingle, getWeather }

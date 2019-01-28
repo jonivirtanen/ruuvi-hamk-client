@@ -15,11 +15,6 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      weather: [
-        { time: '10:00', value: 15 },
-        { time: '11:00', value: 15 },
-        { time: '12:00', value: 15 },
-      ],
       alsu: true,
     }
   }
@@ -86,10 +81,7 @@ class App extends Component {
               </Grid>
             )}
           />
-          <Route
-            path="/weather"
-            render={() => <Weather weather={this.state.tags} />}
-          />
+          <Route path="/weather" render={() => <Weather />} />
           {this.state.tags ? (
             <Route
               exact

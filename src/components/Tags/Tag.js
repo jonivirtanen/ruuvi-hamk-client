@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import moment from 'moment'
+import FontAwesome from 'react-fontawesome'
 import { Line } from 'react-chartjs-2'
 import { Link } from 'react-router-dom'
 import ruuviService from '../../services/ruuvi'
@@ -79,9 +80,18 @@ class Tag extends Component {
         <div className="tagValues">
           <div className="ruuviId">{tag.ruuviId}</div>
           <div className="ruuviName">{tag.name}</div>
-          <div className="temperature">{tag.temperature.toFixed(1)}</div>
-          <div className="humidity"> {tag.humidity}</div>
-          <div className="pressure"> {tag.pressure}</div>
+          <div className="temperature">
+            <FontAwesome className="fas fa-thermometer-half" />
+            {' ' + tag.temperature.toFixed(1)}
+          </div>
+          <div className="humidity">
+            <FontAwesome className="fas fa-tint" />
+            {' ' + tag.humidity} %
+          </div>
+          <div className="pressure">
+            <FontAwesome className="fas fa-star-and-crescent" />
+            {' ' + tag.pressure}
+          </div>
         </div>
         <Line data={data} height={100} />
         <div className="tagControls">
