@@ -1,0 +1,27 @@
+.courses {
+  margin: 2em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.course {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 4em;
+  width: 200px;
+}
+
+.course .category {
+  font-size: 2em;
+  margin-bottom: 0.8em;
+}
+
+.course .title {
+  font-size: 1em;
+  margin-bottom: 0.5em;
+}
+
+.course .price {
+  font-size: 1em;
+}

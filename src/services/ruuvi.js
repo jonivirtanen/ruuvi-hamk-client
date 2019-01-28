@@ -8,7 +8,7 @@ const getAll = () => {
 }
 
 const getSingle = id => {
-  const request = axios.get(`${baseUrl}/tag/${id}/100`)
+  const request = axios.get(`${baseUrl}/test/tag/${id}`)
   return request.then(response => response.data)
 }
 
@@ -17,4 +17,9 @@ const getWeather = () => {
   return request.then(response => response.data)
 }
 
-export default { getAll, getSingle, getWeather }
+const getLunch = () => {
+  const request = axios.get(`${baseUrl}/lunch`)
+  return request.then(response => response.data)
+}
+
+export default { getAll, getSingle, getWeather, getLunch }
