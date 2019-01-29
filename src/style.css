@@ -4,18 +4,21 @@ html {
 
 body {
   background: rgb(255, 255, 255);
-  color: black;
+  color: rgb(0, 0, 0);
 }
 
 .tags {
   display: flex;
-  padding: 1em;
+  padding-top: 2em;
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
 
 .nav {
+  position: fixed;
   display: flex;
+  bottom: 0;
+  width: 100%;
 }
 
 .weather {

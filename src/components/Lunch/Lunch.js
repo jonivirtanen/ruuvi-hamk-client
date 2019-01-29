@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import ruuviService from '../../services/ruuvi'
 import Course from './Course'
 import './course.css'
@@ -22,10 +23,17 @@ class Lunch extends Component {
   render() {
     const { lunch } = this.state
     return (
-      <div className="courses">
-        {lunch.map(l => (
-          <Course meal={l} />
-        ))}
+      <div className="lunchPage">
+        <div className="courses">
+          {lunch.map(l => (
+            <Course meal={l} />
+          ))}
+        </div>
+        <div className="tagControls">
+          <Link to="/">
+            <span className="backButton">Takaisin</span>
+          </Link>
+        </div>
       </div>
     )
   }
