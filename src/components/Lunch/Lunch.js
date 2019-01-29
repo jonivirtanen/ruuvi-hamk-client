@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Loader } from 'semantic-ui-react'
 import ruuviService from '../../services/ruuvi'
 import Course from './Course'
 import Nav from '../Nav/Nav'
@@ -26,9 +26,11 @@ class Lunch extends Component {
     return (
       <div className="lunchPage">
         <div className="courses">
-          {lunch.map(l => (
-            <Course meal={l} />
-          ))}
+          {lunch.length != 0 ? (
+            lunch.map(l => <Course meal={l} />)
+          ) : (
+            <Loader active />
+          )}
         </div>
         <Nav />
       </div>
