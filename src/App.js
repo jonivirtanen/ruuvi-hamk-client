@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import ruuviService from './services/ruuvi'
 import { Grid, Loader } from 'semantic-ui-react'
 import TagElement from './components/Tags/TagElement'
@@ -10,7 +10,6 @@ import Nav from './components/Nav/Nav'
 
 import './style.css'
 import json from './ruuviId_names_pair.json'
-import LunchElement from './components/Lunch/LunchElement'
 
 class App extends Component {
   constructor() {
@@ -94,6 +93,7 @@ class App extends Component {
             />
           ) : null}
           <Route path="/lunch" render={() => <Lunch />} />
+          <Nav />
         </div>
       </Router>
     )

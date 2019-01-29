@@ -3,10 +3,7 @@ import PropTypes from 'prop-types'
 import moment from 'moment'
 import FontAwesome from 'react-fontawesome'
 import { Line } from 'react-chartjs-2'
-import { Link } from 'react-router-dom'
 import ruuviService from '../../services/ruuvi'
-import LunchElement from '../Lunch/LunchElement'
-import Nav from '../Nav/Nav'
 import './tag.css'
 
 class Tag extends Component {
@@ -21,11 +18,9 @@ class Tag extends Component {
   parseData(data = null) {
     let times = []
     let temps = []
-    console.log(data)
     if (data != null) {
       data.forEach(tag => {
         if (tag.temperature != null && tag.time != null) {
-          console.log(tag)
           times.push(moment(tag.time).format('H:mm'))
           temps.push(tag.temperature.toFixed(1))
         }
@@ -122,7 +117,6 @@ class Tag extends Component {
           </div>
         </div>
         <Line data={data} height={100} options={options} />
-        <Nav />
       </div>
     )
   }

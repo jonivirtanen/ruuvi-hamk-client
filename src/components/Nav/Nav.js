@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import LunchElement from '../Lunch/LunchElement'
 import './nav.css'
 
-const Nav = props => {
+const Nav = () => {
   return (
     <div className="nav">
       <Link className="tagsLink" to="/">

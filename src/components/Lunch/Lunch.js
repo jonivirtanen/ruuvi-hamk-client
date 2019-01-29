@@ -3,9 +3,9 @@ import { Loader } from 'semantic-ui-react'
 import ruuviService from '../../services/ruuvi'
 import Course from './Course'
 import moment from 'moment'
-import Nav from '../Nav/Nav'
 import FontAwesome from 'react-fontawesome'
 import './course.css'
+
 class Lunch extends Component {
   constructor() {
     super()
@@ -31,9 +31,9 @@ class Lunch extends Component {
     ruuviService
       .getLunch(date.format('Y'), date.format('MM'), date.format('DD'))
       .then(lunch => {
-        if (lunch.courses.length != 0) this.setState({ lunch: lunch.courses })
-        else if (direction == 'next') this.nextDay()
-        else if (direction == 'prev') this.prevDay()
+        if (lunch.courses.length !== 0) this.setState({ lunch: lunch.courses })
+        else if (direction === 'next') this.nextDay()
+        else if (direction === 'prev') this.prevDay()
       })
   }
 
@@ -57,8 +57,8 @@ class Lunch extends Component {
         <div className="weekDay">{this.state.date.format('dddd')}</div>
         <div className="date">{this.state.date.format('DD.MM.YYYY')}</div>
         <div className="courses">
-          {lunch.length != 0 ? (
-            lunch.map(l => <Course meal={l} />)
+          {lunch.length !== 0 ? (
+            lunch.map(l => <Course key={l.title_fi} meal={l} />)
           ) : (
             <Loader active />
           )}
@@ -79,7 +79,6 @@ class Lunch extends Component {
             size="4x"
           />
         </button>
-        <Nav />
       </div>
     )
   }

@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import ruuviService from '../../services/ruuvi'
 import Day from './Day'
 import PropTypes from 'prop-types'
-import Nav from '../Nav/Nav'
 
 class Weather extends Component {
   constructor() {
@@ -21,7 +20,7 @@ class Weather extends Component {
   render() {
     return (
       <div>
-        <div className="weatherjsjs">
+        <div className="forecasts">
           {this.state.forecast ? (
             this.state.forecast.data.map(entry => (
               <Day key={entry.time} forecast={entry} />
@@ -30,7 +29,6 @@ class Weather extends Component {
             <div>No weather data available</div>
           )}
         </div>
-        <Nav />
       </div>
     )
   }

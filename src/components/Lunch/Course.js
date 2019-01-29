@@ -15,6 +15,6 @@ const Course = props => {
 }
 
 Course.propTypes = {
-  tag: PropTypes.object,
+  meal: PropTypes.object,
 }
 export default Course
