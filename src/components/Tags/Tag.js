@@ -6,6 +6,7 @@ import { Line } from 'react-chartjs-2'
 import { Link } from 'react-router-dom'
 import ruuviService from '../../services/ruuvi'
 import LunchElement from '../Lunch/LunchElement'
+import Nav from '../Nav/Nav'
 import './tag.css'
 
 class Tag extends Component {
@@ -121,12 +122,7 @@ class Tag extends Component {
           </div>
         </div>
         <Line data={data} height={100} options={options} />
-        <div className="nav">
-          <LunchElement />
-          <Link className="weather" to="/weather">
-            Weather
-          </Link>
-        </div>
+        <Nav />
       </div>
     )
   }
