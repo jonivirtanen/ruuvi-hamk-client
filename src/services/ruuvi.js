@@ -17,8 +17,8 @@ const getWeather = () => {
   return request.then(response => response.data)
 }
 
-const getLunch = () => {
-  const request = axios.get(`${baseUrl}/lunch`)
+const getLunch = (year, month, day) => {
+  const request = axios.get(`${baseUrl}/lunch/${year}/${month}/${day}`)
   return request.then(response => response.data)
 }
 
