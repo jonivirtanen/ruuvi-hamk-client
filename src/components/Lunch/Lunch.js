@@ -55,6 +55,7 @@ class Lunch extends Component {
     return (
       <div className="lunchPage">
         <div className="weekDay">{this.state.date.format('dddd')}</div>
+        <div className="date">{this.state.date.format('DD.MM.YYYY')}</div>
         <div className="courses">
           {lunch.length != 0 ? (
             lunch.map(l => <Course meal={l} />)

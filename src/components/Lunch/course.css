@@ -38,7 +38,7 @@
   border: none;
   position: fixed;
   right: 10px;
-  top: 50%;
+  top: 40%;
 }
 .nextDay:focus {
   outline: none;
@@ -49,7 +49,7 @@
   border: none;
   position: fixed;
   left: 10px;
-  top: 50%;
+  top: 40%;
 }
 
 .prevDay:focus {
@@ -58,5 +58,9 @@
 
 .weekDay {
   font-size: 2em;
+  text-align: center;
+}
+
+.date {
   text-align: center;
 }
