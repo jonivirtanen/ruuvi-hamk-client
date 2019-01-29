@@ -5,6 +5,8 @@ import FontAwesome from 'react-fontawesome'
 import { Line } from 'react-chartjs-2'
 import { Link } from 'react-router-dom'
 import ruuviService from '../../services/ruuvi'
+import LunchElement from '../Lunch/LunchElement'
+import Nav from '../Nav/Nav'
 import './tag.css'
 
 class Tag extends Component {
@@ -47,15 +49,41 @@ class Tag extends Component {
   }
 
   render() {
+    const options = {
+      scales: {
+        yAxes: [
+          {
+            gridLines: {
+              color: 'rgba(0,0,0,.2)',
+            },
+            ticks: {
+              fontColor: '#000',
+            },
+          },
+        ],
+        xAxes: [
+          {
+            gridLines: {
+              display: false,
+              color: 'rgba(0,0,0,.2)',
+            },
+            ticks: {
+              fontColor: '#000',
+            },
+          },
+        ],
+      },
+    }
+
     const data = {
       labels: this.state.times,
       datasets: [
         {
           label: 'Lämpötila',
           fill: false,
-          lineTension: 0.1,
-          backgroundColor: 'rgb(75,192,192)',
-          borderColor: 'rgb(75,192,192)',
+          lineTension: 0.3,
+          backgroundColor: 'rgba(255, 0, 0,1)',
+          borderColor: 'rgba(255, 0, 0,1)',
           borderCapStyle: 'butt',
           borderDash: [],
           borderDashOffset: 0.0,
@@ -89,16 +117,12 @@ class Tag extends Component {
             {' ' + tag.humidity} %
           </div>
           <div className="pressure">
-            <FontAwesome className="fas fa-star-and-crescent" />
-            {' ' + tag.pressure}
+            <FontAwesome className="fas fa-long-arrow-alt-down" />
+            {' ' + tag.pressure / 100 + ' kPa'}
           </div>
         </div>
-        <Line data={data} height={100} />
-        <div className="tagControls">
-          <Link to="/">
-            <span className="backButton">Takaisin</span>
-          </Link>
-        </div>
+        <Line data={data} height={100} options={options} />
+        <Nav />
       </div>
     )
   }

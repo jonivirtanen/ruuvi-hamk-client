@@ -6,6 +6,7 @@ import TagElement from './components/Tags/TagElement'
 import Tag from './components/Tags/Tag'
 import Weather from './components/Weather/Weather'
 import Lunch from './components/Lunch/Lunch'
+import Nav from './components/Nav/Nav'
 
 import './style.css'
 import json from './ruuviId_names_pair.json'
@@ -74,12 +75,7 @@ class App extends Component {
                       <Loader active />
                     )}
                   </div>
-                  <div className="nav">
-                    <LunchElement />
-                    <Link className="weather" to="/weather">
-                      Weather
-                    </Link>
-                  </div>
+                  <Nav />
                 </Grid.Column>
               </Grid>
             )}

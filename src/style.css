@@ -4,32 +4,12 @@ html {
 
 body {
   background: rgb(255, 255, 255);
-  color: black;
+  color: rgb(0, 0, 0);
 }
 
 .tags {
   display: flex;
-  padding: 1em;
+  padding-top: 2em;
   justify-content: space-evenly;
   flex-wrap: wrap;
-}
-
-.nav {
-  display: flex;
-}
-
-.weather {
-  color: #000;
-  font-size: 2em;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  justify-content: center;
-  width: 100%;
-  background: rgb(178, 236, 19);
-  border: 1px #000 solid;
-}
-
-.weather:hover {
-  color: #000;
 }

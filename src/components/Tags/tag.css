@@ -36,22 +36,23 @@
 }
 
 .tagPage {
-  margin: 1em;
+  margin: 0;
   padding: 0;
   display: flex;
-  font-size: 2em;
   flex-direction: column;
 }
 
 .tagPage .tagValues {
   display: flex;
   flex-direction: row;
+  font-size: 2em;
 }
 
 .tagPage .tagControls {
   display: flex;
   flex-direction: row;
   width: 100%;
+  margin-top: 1em;
 }
 
 .tagValues .ruuviId {

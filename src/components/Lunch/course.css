@@ -1,5 +1,8 @@
+.lunchPage {
+  margin-top: 1em;
+}
 .courses {
-  margin: 2em;
+  margin: 2em 6em;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -24,4 +27,40 @@
 
 .course .price {
   font-size: 1em;
+}
+
+.course .properties {
+  font-size: 1em;
+}
+
+.nextDay {
+  background: none;
+  border: none;
+  position: fixed;
+  right: 10px;
+  top: 40%;
+}
+.nextDay:focus {
+  outline: none;
+}
+
+.prevDay {
+  background: none;
+  border: none;
+  position: fixed;
+  left: 10px;
+  top: 40%;
+}
+
+.prevDay:focus {
+  outline: none;
+}
+
+.weekDay {
+  font-size: 2em;
+  text-align: center;
+}
+
+.date {
+  text-align: center;
 }
