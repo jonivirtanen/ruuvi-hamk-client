@@ -3,6 +3,7 @@ import ruuviService from '../../services/ruuvi'
 import moment from 'moment'
 import { Line } from 'react-chartjs-2'
 import PropTypes from 'prop-types'
+import Nav from '../Nav/Nav'
 
 class Weather extends Component {
   constructor() {
@@ -78,6 +79,7 @@ class Weather extends Component {
         // style={{ position: 'relative', height: '15em', width: '30em' }}
       >
         <Line data={data} />
+        <Nav />
       </div>
     )
   }

@@ -5,6 +5,7 @@ import FontAwesome from 'react-fontawesome'
 import { Line } from 'react-chartjs-2'
 import { Link } from 'react-router-dom'
 import ruuviService from '../../services/ruuvi'
+import LunchElement from '../Lunch/LunchElement'
 import './tag.css'
 
 class Tag extends Component {
@@ -79,7 +80,7 @@ class Tag extends Component {
         {
           label: 'Lämpötila',
           fill: false,
-          lineTension: 0.1,
+          lineTension: 0.3,
           backgroundColor: 'rgba(255, 0, 0,1)',
           borderColor: 'rgba(255, 0, 0,1)',
           borderCapStyle: 'butt',
@@ -120,9 +121,10 @@ class Tag extends Component {
           </div>
         </div>
         <Line data={data} height={100} options={options} />
-        <div className="tagControls">
-          <Link to="/">
-            <span className="backButton">Takaisin</span>
+        <div className="nav">
+          <LunchElement />
+          <Link className="weather" to="/weather">
+            Weather
           </Link>
         </div>
       </div>

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import ruuviService from '../../services/ruuvi'
 import Course from './Course'
+import Nav from '../Nav/Nav'
 import './course.css'
 class Lunch extends Component {
   constructor() {
@@ -29,11 +30,7 @@ class Lunch extends Component {
             <Course meal={l} />
           ))}
         </div>
-        <div className="tagControls">
-          <Link to="/">
-            <span className="backButton">Takaisin</span>
-          </Link>
-        </div>
+        <Nav />
       </div>
     )
   }
