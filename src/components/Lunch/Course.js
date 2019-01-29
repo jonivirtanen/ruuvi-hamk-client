@@ -9,6 +9,7 @@ const Course = props => {
       <div className="category">{meal.category}</div>
       <div className="title">{meal.title_fi}</div>
       <div className="price">{meal.price}</div>
+      <div className="properties">{meal.properties}</div>
     </div>
   )
 }
