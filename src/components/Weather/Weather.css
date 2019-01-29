@@ -1,0 +1,42 @@
+.weatherjsjs {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.weatherContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 33vw;
+  background: rgb(195, 186, 182);
+  padding: 5px;
+  border: rgb(205, 196, 192) solid 1px;
+}
+
+.weatherContainer .weather_day_title {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.weatherContainer .weather_day_outer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.weatherContainer .weather_day_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: right;
+  width: 100px;
+  margin-right: 1em;
+}
+
+.weatherContainer .weather_day_value {
+  display: flex;
+  flex-direction: column;
+}
