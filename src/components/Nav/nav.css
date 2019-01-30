@@ -6,33 +6,33 @@
 }
 
 .weather {
-  color: #000;
+  color: #fff;
   font-size: 2em;
   display: flex;
   flex-direction: column;
   text-align: center;
   justify-content: center;
   width: 100%;
-  background: rgb(178, 236, 19);
-  border: 1px #000 solid;
+  background: rgb(255, 64, 64);
+  border: 1px rgba(0, 0, 0, 0.5) solid;
 }
 
 .weather:hover {
-  color: #000;
+  color: #fff;
 }
 
 .tagsLink {
-  color: #000;
+  color: #fff;
   font-size: 2em;
   display: flex;
   flex-direction: column;
   text-align: center;
   justify-content: center;
   width: 100%;
-  background: rgb(236, 19, 146);
-  border: 1px #000 solid;
+  background: rgb(255, 64, 64);
+  border: 1px rgba(0, 0, 0, 0.5) solid;
 }
 
 .tagsLink:hover {
-  color: #000;
+  color: #fff;
 }
