@@ -4,6 +4,7 @@ import moment from 'moment'
 import FontAwesome from 'react-fontawesome'
 
 import './Weather.css'
+import WeatherSymbol from './WeatherSymbol'
 
 const Day = ({ forecast }) => {
   return (
@@ -35,9 +36,13 @@ const Day = ({ forecast }) => {
             </span>
           </div>
         </div>
+        <div className="sun">
+          <FontAwesome name="sunRise" className="far fa-sun" size="3x" />
+          <FontAwesome name="sunSet" className="fas fa-sun" size="3x" />
+        </div>
       </div>
       <div className="weatherIcon">
-        <FontAwesome name="weathericon" className="fas fa-cloud" size="3x" />
+        <WeatherSymbol status={forecast.icon} />
       </div>
     </div>
   )

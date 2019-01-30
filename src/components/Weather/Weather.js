@@ -22,9 +22,9 @@ class Weather extends Component {
       <div>
         <div className="forecasts">
           {this.state.forecast ? (
-            this.state.forecast.data.map(entry => (
-              <Day key={entry.time} forecast={entry} />
-            ))
+            this.state.forecast.data
+              .slice(0, 3)
+              .map(entry => <Day key={entry.time} forecast={entry} />)
           ) : (
             <div>No weather data available</div>
           )}
