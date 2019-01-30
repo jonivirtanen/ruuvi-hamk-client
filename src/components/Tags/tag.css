@@ -77,6 +77,11 @@
 .tagValues .pressure {
   margin: 1em;
 }
+
+.tagValues .mean {
+  margin: 1em;
+}
+
 .tagControls a {
   color: white;
   width: 100%;

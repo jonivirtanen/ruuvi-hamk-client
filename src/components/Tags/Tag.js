@@ -12,6 +12,7 @@ class Tag extends Component {
     this.state = {
       times: [],
       temps: [],
+      meanTemp: 0,
     }
   }
 
@@ -38,6 +39,13 @@ class Tag extends Component {
     ruuviService.getSingle(this.props.tag.ruuviId).then(data => {
       this.parseData(data)
     })
+
+    ruuviService.getMeanTemp(this.props.tag.ruuviId).then(data => {
+      this.setState({
+        meanTemp: data[0].temperature,
+      })
+    })
+
     setTimeout(() => {
       this.componentDidMount()
     }, 60000)
@@ -51,8 +59,8 @@ class Tag extends Component {
           <div className="ruuviId">{tag.ruuviId}</div>
           <div className="ruuviName">{tag.name}</div>
           <div className="temperature">
-            <FontAwesome className="fas fa-thermometer-half" />
-            {' ' + tag.temperature.toFixed(1)}
+            <FontAwesome className="fas fa-thermometer-three-quarters" />
+            {' ' + tag.temperature.toFixed(1) + '°C'}
           </div>
           <div className="humidity">
             <FontAwesome className="fas fa-tint" />
@@ -63,8 +71,8 @@ class Tag extends Component {
             {' ' + tag.pressure / 100 + ' hPa'}
           </div>
           <div className="mean">
-            <FontAwesome className="fas fa-long-arrow-alt-down" />
-            {' ' + tag.pressure / 100 + ' kPa'}
+            <FontAwesome className="fas fa-thermometer-half" />
+            {' ' + this.state.meanTemp.toFixed(1) + '°C'}
           </div>
         </div>
         <TagLine
