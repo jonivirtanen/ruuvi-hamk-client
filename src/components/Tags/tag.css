@@ -1,6 +1,6 @@
 .tag {
   color: #fff;
-  margin: 1px 0;
+  margin: 5px 0;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -8,6 +8,7 @@
   width: 32vw;
   height: 150px;
   border: 1px black solid;
+  box-shadow: 1px 1px #000;
 }
 
 .tag:hover {
