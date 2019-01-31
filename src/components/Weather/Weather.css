@@ -2,37 +2,68 @@
   color: #000;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  padding-top: 1rem;
 }
 
 .weatherContainer {
+  width: 30vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 1rem;
+}
+
+.weatherContainer > * {
+  flex: 1 100%;
+}
+
+.weatherContainer .header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 33vw;
-  background: rgb(195, 186, 182);
-  padding: 5px;
-  border: rgb(205, 196, 192) solid 1px;
+}
+
+.weatherContainer .header .title {
+  display: flex;
+  flex-direction: column;
+}
+
+.weatherContainer span.text {
+  font-size: 1em;
+}
+
+.weatherContainer .weatherInfo {
+  display: flex;
+  flex-direction: column;
 }
 
 .weatherContainer .weather_day_title {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  font-weight: bolder;
+}
+
+.weatherContainer .weather_day_summary {
+  font-weight: 300;
 }
 
 .weatherContainer .weather_day_outer {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
+  padding-top: 1rem;
+}
+
+.weatherContainer .weather_day_outer#sun {
+  padding-top: 2rem;
+  justify-content: space-evenly;
 }
 
 .weatherContainer .weather_day_wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: right;
+  text-align: left;
   width: 100px;
   margin-right: 1em;
 }
@@ -40,4 +71,10 @@
 .weatherContainer .weather_day_value {
   display: flex;
   flex-direction: column;
+}
+
+.weatherContainer .sun_container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
