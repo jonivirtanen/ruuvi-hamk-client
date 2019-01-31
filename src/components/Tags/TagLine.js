@@ -34,10 +34,10 @@ const TagLine = ({ temps, times, height }) => {
     datasets: [
       {
         label: 'Lämpötila',
-        fill: false,
-        lineTension: 0.3,
-        backgroundColor: 'rgba(255, 0, 0,1)',
-        borderColor: 'rgba(255, 0, 0,1)',
+        fill: 'origin',
+        lineTension: 0.2,
+        backgroundColor: 'rgba(255, 86, 86, 0.6)',
+        borderColor: 'rgba(255, 0, 0.9)',
         borderCapStyle: 'butt',
         borderDash: [],
         borderDashOffset: 0.0,
