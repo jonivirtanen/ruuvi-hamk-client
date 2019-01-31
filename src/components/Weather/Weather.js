@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ruuviService from '../../services/ruuvi'
 import Day from './Day'
 import PropTypes from 'prop-types'
+import dummy from './dummy.json'
 
 class Weather extends Component {
   constructor() {
@@ -10,11 +11,18 @@ class Weather extends Component {
   }
 
   componentDidMount() {
-    ruuviService.getWeather().then(forecast => {
-      this.setState({
-        forecast,
+    ruuviService
+      .getWeather()
+      .then(forecast => {
+        this.setState({
+          forecast,
+        })
       })
-    })
+      .catch(() => {
+        this.setState({
+          forecast: dummy.daily,
+        })
+      })
   }
 
   render() {

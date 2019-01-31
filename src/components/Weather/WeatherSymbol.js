@@ -6,17 +6,25 @@ const WeatherSymbol = ({ status }) => {
   // clear-day, clear-night, fog,
   switch (status) {
     case 'cloudy':
-      return <FontAwesome name="cloudy" className="fas fa-cloud" />
+      return <FontAwesome name="cloudy" className="fas fa-cloud" size="2x" />
     case 'partly-cloudy-day':
       return (
-        <FontAwesome name="partly_cloudy_day" className="fas fa-cloud-sun" />
+        <FontAwesome
+          name="partly_cloudy_day"
+          className="fas fa-cloud-sun"
+          size="2x"
+        />
       )
     case 'partly-cloudy-night':
       return (
-        <FontAwesome name="partly_cloudy_night" className="fas fa-cloud-moon" />
+        <FontAwesome
+          name="partly_cloudy_night"
+          className="fas fa-cloud-moon"
+          size="2x"
+        />
       )
     case 'snow':
-      return <FontAwesome name="snow" className="fas fa-snowflake" />
+      return <FontAwesome name="snow" className="fas fa-snowflake" size="2x" />
     case 'sleet':
       return (
         <div>
