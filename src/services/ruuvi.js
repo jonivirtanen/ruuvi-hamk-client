@@ -12,6 +12,11 @@ const getSingle = id => {
   return request.then(response => response.data)
 }
 
+const getMeanTemp = id => {
+  const request = axios.get(`${baseUrl}/tag/${id}/mean`)
+  return request.then(response => response.data)
+}
+
 const getWeather = () => {
   const request = axios.get(`${baseUrl}/weather`)
   return request.then(response => response.data)
@@ -22,4 +27,4 @@ const getLunch = (year, month, day) => {
   return request.then(response => response.data)
 }
 
-export default { getAll, getSingle, getWeather, getLunch }
+export default { getAll, getSingle, getWeather, getLunch, getMeanTemp }

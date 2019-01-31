@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import moment from 'moment'
 import FontAwesome from 'react-fontawesome'
-import { Line } from 'react-chartjs-2'
+import TagLine from './TagLine'
 import ruuviService from '../../services/ruuvi'
 import './tag.css'
 
@@ -12,6 +12,7 @@ class Tag extends Component {
     this.state = {
       times: [],
       temps: [],
+      meanTemp: 0,
     }
   }
 
@@ -38,65 +39,19 @@ class Tag extends Component {
     ruuviService.getSingle(this.props.tag.ruuviId).then(data => {
       this.parseData(data)
     })
+
+    ruuviService.getMeanTemp(this.props.tag.ruuviId).then(data => {
+      this.setState({
+        meanTemp: data[0].temperature,
+      })
+    })
+
     setTimeout(() => {
       this.componentDidMount()
     }, 60000)
   }
 
   render() {
-    const options = {
-      scales: {
-        yAxes: [
-          {
-            gridLines: {
-              color: 'rgba(0,0,0,.2)',
-            },
-            ticks: {
-              fontColor: '#000',
-            },
-          },
-        ],
-        xAxes: [
-          {
-            gridLines: {
-              display: false,
-              color: 'rgba(0,0,0,.2)',
-            },
-            ticks: {
-              fontColor: '#000',
-            },
-          },
-        ],
-      },
-    }
-
-    const data = {
-      labels: this.state.times,
-      datasets: [
-        {
-          label: 'Lämpötila',
-          fill: false,
-          lineTension: 0.3,
-          backgroundColor: 'rgba(255, 0, 0,1)',
-          borderColor: 'rgba(255, 0, 0,1)',
-          borderCapStyle: 'butt',
-          borderDash: [],
-          borderDashOffset: 0.0,
-          borderJoinStyle: 'miter',
-          pointBorderColor: 'rgba(0,0,0,1)',
-          pointBackgroundColor: '#fff',
-          pointBorderWidth: 1,
-          pointHoverRadius: 5,
-          pointHoverBackgroundColor: 'rgba(0,0,0,1)',
-          pointHoverBorderColor: 'rgba(0,0,0,1)',
-          pointHoverBorderWidth: 2,
-          pointRadius: 1,
-          pointHitRadius: 10,
-          data: this.state.temps,
-        },
-      ],
-    }
-
     const { tag } = this.props
     return (
       <div className="tagPage">
@@ -104,8 +59,8 @@ class Tag extends Component {
           <div className="ruuviId">{tag.ruuviId}</div>
           <div className="ruuviName">{tag.name}</div>
           <div className="temperature">
-            <FontAwesome className="fas fa-thermometer-half" />
-            {' ' + tag.temperature.toFixed(1)}
+            <FontAwesome className="fas fa-thermometer-three-quarters" />
+            {' ' + tag.temperature.toFixed(1) + '°C'}
           </div>
           <div className="humidity">
             <FontAwesome className="fas fa-tint" />
@@ -113,10 +68,18 @@ class Tag extends Component {
           </div>
           <div className="pressure">
             <FontAwesome className="fas fa-long-arrow-alt-down" />
-            {' ' + tag.pressure / 100 + ' kPa'}
+            {' ' + tag.pressure / 100 + ' hPa'}
+          </div>
+          <div className="mean">
+            <FontAwesome className="fas fa-thermometer-half" />
+            {' ' + this.state.meanTemp.toFixed(1) + '°C'}
           </div>
         </div>
-        <Line data={data} height={100} options={options} />
+        <TagLine
+          temps={this.state.temps}
+          height={100}
+          times={this.state.times}
+        />
       </div>
     )
   }

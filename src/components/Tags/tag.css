@@ -47,7 +47,9 @@
 .tagPage .tagValues {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   font-size: 2em;
+  margin-bottom: 0.7em;
 }
 
 .tagPage .tagControls {
@@ -59,24 +61,29 @@
 
 .tagValues .ruuviId {
   display: none;
-  margin: 1em;
+  margin: 0 1em;
 }
 
 .tagValues .ruuviName {
-  margin: 1em;
+  margin: 0.7em 0.5em 0;
 }
 
 .tagValues .temperature {
-  margin: 1em;
+  margin: 0.7em 0.5em 0;
 }
 
 .tagValues .humidity {
-  margin: 1em;
+  margin: 0.7em 0.5em 0;
 }
 
 .tagValues .pressure {
-  margin: 1em;
+  margin: 0.7em 0.5em 0;
 }
+
+.tagValues .mean {
+  margin: 0.7em 0.5em 0;
+}
+
 .tagControls a {
   color: white;
   width: 100%;
