@@ -14,9 +14,7 @@ import json from './ruuviId_names_pair.json'
 class App extends Component {
   constructor() {
     super()
-    this.state = {
-      alsu: true,
-    }
+    this.state = {}
   }
 
   componentDidMount() {

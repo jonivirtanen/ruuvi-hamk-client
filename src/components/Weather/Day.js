@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import moment from 'moment'
 import FontAwesome from 'react-fontawesome'
-
 import './Weather.css'
 import WeatherSymbol from './WeatherSymbol'
 
@@ -12,6 +11,10 @@ const Day = ({ forecast }) => {
       <div className="header">
         <div className="title">
           <span className="text weather_day_title">
+            {moment
+              .unix(forecast.time)
+              .format('ddd')
+              .toUpperCase() + ' '}
             {moment.unix(forecast.time).format('DD.MM.YYYY')}
           </span>
           <span className="text weather_day_summary">{forecast.summary}</span>

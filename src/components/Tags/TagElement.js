@@ -12,11 +12,9 @@ class TagElement extends Component {
         style={{ background: hexColor }}
         to={`/tags/${tag.ruuviId}`}
       >
-        {/* <div className="tag" style={{ background: hexColor }}> */}
         <div className="ruuviId">{tag.ruuviId}</div>
         <div className="ruuviName">{tag.name}</div>
         <div className="temperature">{tag.temperature.toFixed(1)}</div>
-        {/* </div> */}
       </Link>
     )
   }
