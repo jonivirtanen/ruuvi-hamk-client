@@ -59,19 +59,25 @@ class Tag extends Component {
           <div className="ruuviId">{tag.ruuviId}</div>
           <div className="ruuviName">{tag.name}</div>
           <div className="temperature">
-            <FontAwesome className="fas fa-thermometer-three-quarters" />
+            <FontAwesome
+              name="temperature"
+              className="fas fa-thermometer-three-quarters"
+            />
             {' ' + tag.temperature.toFixed(1) + '°C'}
           </div>
           <div className="humidity">
-            <FontAwesome className="fas fa-tint" />
+            <FontAwesome name="humidity" className="fas fa-tint" />
             {' ' + tag.humidity} %
           </div>
           <div className="pressure">
-            <FontAwesome className="fas fa-long-arrow-alt-down" />
+            <FontAwesome
+              name="pressure"
+              className="fas fa-long-arrow-alt-down"
+            />
             {' ' + tag.pressure / 100 + ' hPa'}
           </div>
           <div className="mean">
-            <FontAwesome className="fas fa-thermometer-half" />
+            <FontAwesome name="mean" className="fas fa-thermometer-half" />
             {' ' + this.state.meanTemp.toFixed(1) + '°C'}
           </div>
         </div>
