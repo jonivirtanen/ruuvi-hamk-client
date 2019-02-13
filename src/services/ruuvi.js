@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baseUrl = 'http://10.0.10.12:3000'
+const baseUrl = 'http://localhost:3000'
 
 const getAll = () => {
   const request = axios.get(`${baseUrl}/tags/latest`)
