@@ -36,6 +36,17 @@ class Tag extends Component {
   }
 
   componentDidMount() {
+    this.updateState()
+    this.timer = setInterval(() => {
+      this.updateState()
+    }, 60000)
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer)
+  }
+
+  updateState() {
     ruuviService.getSingle(this.props.tag.ruuviId).then(data => {
       this.parseData(data)
     })
@@ -45,10 +56,6 @@ class Tag extends Component {
         meanTemp: data[0].temperature,
       })
     })
-
-    setTimeout(() => {
-      this.componentDidMount()
-    }, 60000)
   }
 
   render() {
