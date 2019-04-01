@@ -18,10 +18,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "server": "json-server -p 3001 latest.json"
+    "build": "react-scripts build"
   },
   "eslintConfig": {
     "extends": "react-app"
